@@ -1,0 +1,174 @@
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/ayumi/bprog2022/.ghci
+2022-05-19 15:49:52.1460181
+>>> 85+62
+147
+2022-05-19 15:54:17.8262854
+>>> 9999*5555
+55544445
+2022-05-19 15:54:41.5733909
+>>> 3+2*5
+13
+2022-05-19 15:54:51.5422586
+>>> (3+2)*5
+25
+2022-05-19 15:55:24.8018043
+>>> 5-4-8
+-7
+2022-05-19 15:55:47.3166832
+>>> sqrt 2
+1.4142135623730951
+2022-05-19 15:59:42.8899363
+>>> double 3
+
+<interactive>:7:1: error: Variable not in scope: double :: t0 -> t
+2022-05-19 16:02:38.2282954
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/ayumi/bprog2022/.ghci
+2022-05-26 15:02:25.0813789
+>>> maxBound :: Int
+9223372036854775807
+2022-05-26 15:03:36.7318858
+>>> 2 ^63-1
+9223372036854775807
+2022-05-26 15:05:10.8377424
+>>> minBound :: Int
+-9223372036854775808
+2022-05-26 15:05:40.7560949
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+Ok, no modules loaded.
+2022-05-26 15:49:15.8279034
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-05-26 15:49:15.8916133
+>>> 
+2022-05-26 15:56:13.7832512
+>>> double 3
+6
+2022-05-26 15:56:25.1472084
+>>> double 243
+486
+2022-05-26 15:56:34.1392068
+>>> double 987/6
+
+<interactive>:9:11: error:
+    • No instance for (Fractional Int) arising from a use of ‘/’
+    • In the expression: double 987 / 6
+      In an equation for ‘it’: it = double 987 / 6
+2022-05-26 15:56:57.4294822
+>>> double (987/6
+
+<interactive>:10:14: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+2022-05-26 15:57:19.0920819
+>>> double (987/6)
+
+<interactive>:11:12: error:
+    • No instance for (Fractional Int) arising from a use of ‘/’
+    • In the first argument of ‘double’, namely ‘(987 / 6)’
+      In the expression: double (987 / 6)
+      In an equation for ‘it’: it = double (987 / 6)
+2022-05-26 15:57:25.5891123
+>>> double (1+2)
+6
+2022-05-26 15:57:56.8889544
+>>> double(1+2)
+6
+2022-05-26 15:59:16.0309657
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/ayumi/bprog2022/.ghci
+2022-06-09 14:56:01.6535501
+>>> 2+3*4
+14
+2022-06-09 14:58:39.386829
+>>> clear
+
+<interactive>:2:1: error: Variable not in scope: clear
+2022-06-09 14:58:58.5737822
+>>> c;aer
+
+<interactive>:3:1: error:
+    Parse error: module header, import declaration
+    or top-level declaration expected.
+2022-06-09 14:59:14.081793
+>>> claer
+
+<interactive>:4:1: error: Variable not in scope: claer
+2022-06-09 14:59:21.6501231
+>>> clear
+
+<interactive>:5:1: error: Variable not in scope: clear
+2022-06-09 15:00:13.6236053
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/ayumi/bprog2022/.ghci
+2022-06-09 15:00:50.2870781
+>>> (2+3)*4
+20
+2022-06-09 15:01:11.7661525
+>>> ;i sqrt
+
+<interactive>:2:2: error:
+    Parse error: module header, import declaration
+    or top-level declaration expected.
+2022-06-09 15:01:49.2264702
+>>> sqrt (3^2+4^2)
+5.0
+2022-06-09 15:09:25.9712684
+>>> sqrt (25 :: Int)
+
+<interactive>:4:1: error:
+    • No instance for (Floating Int) arising from a use of ‘sqrt’
+    • In the expression: sqrt (25 :: Int)
+      In an equation for ‘it’: it = sqrt (25 :: Int)
+2022-06-09 15:10:03.6646887
+>>> sqrt (25 :: Double) 
+5.0
+2022-06-09 15:10:57.8395223
+>>> head [3,1,4,1,5]
+3
+2022-06-09 15:47:47.8629011
+>>> head []
+*** Exception: Prelude.head: empty list
+2022-06-09 15:48:58.4469743
+>>> tail []
+*** Exception: Prelude.tail: empty list
+2022-06-09 15:53:17.45233
+>>> load src/First where
+
+<interactive>:9:16: error: parse error on input ‘where’
+2022-06-09 16:08:15.3918775
+>>> load src/First.hs
+
+<interactive>:10:10: error:
+    Not in scope: ‘First.hs’
+    No module named ‘First’ is imported.
+2022-06-09 16:09:01.3662028
+>>> [1 of 1] Compilimg First
+
+<interactive>:11:4: error: parse error on input ‘of’
+2022-06-09 16:10:22.4647419
+>>> load src/First.hs
+
+<interactive>:12:10: error:
+    Not in scope: ‘First.hs’
+    No module named ‘First’ is imported.
+2022-06-09 16:11:14.4865202
+>>> double 3+3
+
+<interactive>:13:1: error: Variable not in scope: double :: t0 -> a
+2022-06-09 16:11:34.9984967
+>>> :e
+No files to edit.
+2022-06-09 16:14:51.9978813
+>>> quadruple 2
+
+<interactive>:15:1: error:
+    Variable not in scope: quadruple :: t0 -> t
+2022-06-09 16:15:11.344434
+>>> :quit
+Leaving GHCi.
