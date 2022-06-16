@@ -172,3 +172,214 @@ No files to edit.
 2022-06-09 16:15:11.344434
 >>> :quit
 Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/ayumi/bprog2022/.ghci
+2022-06-16 15:02:10.1759013
+>>> take 3 [3,1,4,1,5]
+[3,1,4]
+2022-06-16 15:05:05.7285139
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+Ok, no modules loaded.
+2022-06-16 15:11:23.7408441
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:11:23.7993578
+>>> 
+2022-06-16 15:12:22.2395264
+>>> double
+
+<interactive>:5:1: error:
+    • No instance for (Show (Int -> Int)) arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+2022-06-16 15:13:26.5343248
+>>> take (double 2)[1,2,3,4,5]
+[1,2,3,4]
+2022-06-16 15:15:50.58526
+>>> [1 .. 10]
+[1,2,3,4,5,6,7,8,9,10]
+2022-06-16 15:20:42.7714971
+>>> ;r
+
+<interactive>:8:2: error:
+    Parse error: module header, import declaration
+    or top-level declaration expected.
+2022-06-16 15:21:33.3283975
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:21:43.9577024
+>>> factorial 3
+6
+2022-06-16 15:22:41.5807234
+>>> factorial 4
+24
+2022-06-16 15:22:52.5129348
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+Ok, one module loaded.
+2022-06-16 15:28:56.99941
+>>> 
+2022-06-16 15:29:08.2042861
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs 'siv' length xs
+  14  
+  15  ave :: [Int] -> int
+  16  ave xs = div (sum xs) (length xs)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:13:21: error:
+    • Syntax error on 'siv'
+      Perhaps you intended to use TemplateHaskell or TemplateHaskellQuotes
+    • In the Template Haskell quotation 'siv'
+   |
+13 | average xs = sum xs 'siv' length xs
+   |                     ^^^^^
+Failed, no modules loaded.
+2022-06-16 15:38:41.929923
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs 'div' length xs
+  14  
+  15  ave :: [Int] -> int
+  16  ave xs = div (sum xs) (length xs)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:13:21: error:
+    • Syntax error on 'div'
+      Perhaps you intended to use TemplateHaskell or TemplateHaskellQuotes
+    • In the Template Haskell quotation 'div'
+   |
+13 | average xs = sum xs 'div' length xs
+   |                     ^^^^^
+Failed, no modules loaded.
+2022-06-16 15:39:06.1287315
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs `div` length xs
+  14  
+  15  ave :: [Int] -> int
+  16  ave xs = div (sum xs) (length xs)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:16:10: error:
+    • Couldn't match expected type ‘int’ with actual type ‘Int’
+      ‘int’ is a rigid type variable bound by
+        the type signature for:
+          ave :: forall int. [Int] -> int
+        at src/First.hs:15:1-19
+    • In the expression: div (sum xs) (length xs)
+      In an equation for ‘ave’: ave xs = div (sum xs) (length xs)
+    • Relevant bindings include
+        ave :: [Int] -> int (bound at src/First.hs:16:1)
+   |
+16 | ave xs = div (sum xs) (length xs)
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^
+Failed, no modules loaded.
+2022-06-16 15:40:54.1232918
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double(double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs `div` length xs
+  14  
+  15  ave :: [Int] -> Int
+  16  ave xs = div (sum xs) (length xs)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:42:34.9988373
+>>> :t take 3 [1,2,3,4,5]
+take 3 [1,2,3,4,5] :: Num a => [a]
+2022-06-16 15:50:24.8248245
+>>> git add .
+
+<interactive>:19:10: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+2022-06-16 16:04:34.5141475
+>>> quit
+
+<interactive>:20:1: error:
+    • Variable not in scope: quit
+    • Perhaps you meant ‘quot’ (imported from Prelude)
+2022-06-16 16:05:19.6694016
+>>> init [1 .. 5]
+[1,2,3,4]
+2022-06-16 16:07:29.7228029
+>>> init [1 .. 5]
+[1,2,3,4]
+2022-06-16 16:15:34.5195494
+>>> init []
+*** Exception: Prelude.init: empty list
+2022-06-16 16:15:42.3367568
+>>> :q
+Leaving GHCi.
